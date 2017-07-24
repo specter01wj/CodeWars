@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script>
+			/*
+			Deoxyribonucleic acid (DNA) is a chemical found in the nucleus of cells and carries the "instructions" for the development and functioning of living organisms.
+
+			If you want to know more http://en.wikipedia.org/wiki/DNA
+
+			In DNA strings, symbols "A" and "T" are complements of each other, as "C" and "G". You have function with one side of the DNA (string, except for Haskell); you need to get the other complementary side. DNA strand is never empty or there is no DNA at all (again, except for Haskell).
+
+			DNAStrand ("ATTGC") # return "TAACG"
+			DNAStrand ("GTAT") # return "CATA"
+			*/
+
+
+			$(document).ready(function(){
+
+				// sol 1
+				/*const complements = new Map ([['G','C'],['C','G'],['T','A'],['A','T']]);
+				const DNAStrand = dna => dna.split('').map(x => complements.get(x)).join('');*/
+
+				// sol 2
+				/*function DNAStrand(dna){
+				  var dnaPairs = {'A':'T', 'T':'A', 'G':'C', 'C':'G'};
+				  return dna.replace(/./g, sym => dnaPairs[sym]);
+				}*/
+
+				// sol 3
+				/*let dnaPairs = {'A':'T', 'T':'A', 'G':'C', 'C':'G'};
+				const DNAStrand = dna => dna.replace(/./g, sym => dnaPairs[sym]);*/
+
+				// sol 4
+				function DNAStrand(dna){
+				  return dna
+				   .split('')
+				   .map(function(el) {
+				     switch(el) {
+				       case 'A': return 'T';
+				       case 'T': return 'A';
+				       case 'G': return 'C';
+				       case 'C': return 'G';
+				     }
+				   })
+				   .join('');
+				}
+
+				var nums = 'ATTGC';
+				var tt1 = DNAStrand(nums);
+				$('#t1').html('<h2>Inputs: ' + nums + '<br>Results: ' + tt1 + '</h2>');
+			});
+
+			/*sol:
+
+			 */
+
+		</script>
+	</head>
+	
+	<body>
+		<div>
+			<p id='t1'></p>
+		</div>
+	</body>
+
+</html>
